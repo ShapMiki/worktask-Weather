@@ -49,6 +49,12 @@ h1, h2, li, p{
 
 a{
     color: #1565C0;
+    text-decoration: none;
+}
+
+a:visited, a:active, a:hover, a:focus {
+      color: #1565C0;
+    text-decoration: none;
 }
 
 .container{
@@ -60,8 +66,6 @@ a{
     height: 60vh;
     border: 1px solid #305983;
     border-radius: 10px;
-
-
 }
 
 .func-button-container{
@@ -114,6 +118,45 @@ a{
     margin-bottom: 15px;
 }
 
+.weather-result{
+    display: flex;
+    flex-direction: column;
+    background-color: #e5f6ff;
+    min-width: 350px;
+    width: 65%;
+    height: 30%;
+    border: 1px solid #305983;
+    border-radius: 10px;
+    margin-top: 30px;
+    align-self: center;
+}
+
+.weather-block{
+    display: flex;
+    flex-direction: column;
+}
+
+.weather-city{
+    font-size: 1.9vh;
+    font-weight: bold;
+    color: #0a2a49;
+    padding-top: 5px;
+    align-self: center;
+}
+
+.weather-condition{
+    font-size: 1.65vh;
+    margin-top: 0px;
+    align-self: center;
+}
+
+.weather-wind{
+    font-size: 1.65vh;
+    margin-top: 0px;
+    align-self: center;
+}
+
+
 .get-weather-button {
     background-color: #3d7e97;
     color: white;
@@ -145,6 +188,32 @@ a{
     font-size: 2.1vh;
 }
 
+.exception-container{
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #d6f1ff;
+    min-width: 400px;
+    width: 40vw;
+    height: 30vh;
+    border: 1px solid #305983;
+    border-radius: 10px;
+}
+
+.second-exception-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    background-color: #f2f8f8;
+    width: 75%;
+    height: 65%;
+    border:  1px solid grey;
+    border-radius: 7px;
+    max-height: 65%;
+    overflow-y: auto;
+}
 /*
 @media (max-height: 600px) {
 

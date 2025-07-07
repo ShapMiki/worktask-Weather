@@ -11,8 +11,7 @@ class Settings(BaseSettings):
     DATABASE_URL: Optional[str] = None
     hour_zone: int
     api_key: str
-    yandex_weather_api_key:str
-    yandex_geocoder_api_key:str
+
     @model_validator(mode="before")
     @classmethod
     def set_database_url(cls, values):

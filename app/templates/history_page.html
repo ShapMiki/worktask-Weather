@@ -11,7 +11,7 @@
 <body>
 
     <header>
-        <h1 class="text-logo">Weather forecast</h1>
+        <a href="/pages/"><h1 class="text-logo">Weather forecast</h1></a>
     </header>
 
 
@@ -19,21 +19,21 @@
         <div class="container">
 
             <div class="func-button-container">
-                <button class="first-func-button choese-history-button" >Check all history</button>
+                <a href="/pages/history/{{data.another_history_type}}"><button class="first-func-button choese-history-button" >Check {{data.another_history_type}} history</button></a>
                 <button class="cleaner-button"> Clear history</button>
             </div>
             <h2 align="center">History</h2>
             <div class="history-container" >
                 <ul class="history-ul">
-                    <li class="weather-data-li">london, 32℃, sunny - 07.07.2025 11:22</li>
-                    <li class="weather-data-li">london, 32℃, sunny - 06.07.2025 14:32</li>
-                    <li class="weather-data-li">london, 32℃, sunny - 01.07.2025 18:56</li>
-                    <li class="weather-data-li">london, 32℃, sunny - 30.06.2025 3:09</li>
-                    <li class="weather-data-li">london, 32℃, sunny - 29.06.2025 12:00</li>
-                    <li class="weather-data-li">london, 32℃, sunny - 28.06.2025 16:22</li>
-                    <li class="weather-data-li">london, 32℃, sunny - 28.06.2025 6:46</li>
-                    <li class="weather-data-li">london, 32℃, sunny - 27.06.2025 6:26</li>
-                    <li class="weather-data-li">london, 32℃, sunny - 26.06.2025 9:15</li>
+                    {% if history %}
+                        {% for item in history %}
+                            <li class="weather-data-li">{{ item.request_datetime }}: {{ item.city }}, {{ item.temperature }}℃, {{ item.weather }} </li>
+                        {% endfor %}
+                    {% else %}
+                        <li class="weather-data-li" style="list-style: none;">Do you first weather request! </li>
+                        <li class="weather-data-li" style="list-style: none;" >Or press "Check all history" </li>
+                    {% endif %}
+
 
                 </ul>
             </div>

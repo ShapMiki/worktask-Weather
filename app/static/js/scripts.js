@@ -13,10 +13,12 @@ function getWeather() {
     const endpoint = "/api/weather/current/" + encodeURIComponent(city);
 
     fetch(endpoint)
-        .then(response => {
+        .then(async response => {
             if (!response.ok) {
-                throw new Error("Ошибка сети: " + response.statusText);
-                alert(response.statusText);
+                  const errorData = await response.json();
+                  document.querySelector(".weather-result").innerHTML = "";
+                  alert("Error: " + (errorData.detail || response.statusText || response.status));
+                  throw new Error("Ошибка сети: " + (errorData.detail || response.statusText || response.status));
             }
             return response.json();
         })
@@ -25,48 +27,50 @@ function getWeather() {
             weatherDiv.innerHTML = "";
 
             if (data.error) {
-                weatherDiv.textContent = data.error;
+                alert(data.error);
+                weatherDiv.textContent = "";
             } else {
-                const p = document.createElement("p");
-                p.textContent = `Weather in ${city} </br> Condition: ${data.condition}, temperature: ${data.temp}°C </br> Wind: ${data.wind_speed} m/s, feels_like: ${data.feels_like}°C`;
-                weatherDiv.appendChild(p);
+                const container = document.createElement("div");
+                container.classList.add("weather-block");
+
+                const cityP = document.createElement("p");
+                cityP.textContent = `Weather in ${city}`;
+                cityP.classList.add("weather-city");
+
+                const conditionP = document.createElement("p");
+                conditionP.textContent = `Condition: ${data.condition}, temperature: ${data.temp}°C`;
+                conditionP.classList.add("weather-condition");
+
+                const windP = document.createElement("p");
+                windP.textContent = `Wind: ${data.wind_speed} m/s, feels like: ${data.feels_like}°C`;
+                windP.classList.add("weather-wind");
+
+                container.appendChild(cityP);
+                container.appendChild(conditionP);
+                container.appendChild(windP);
+
+                weatherDiv.appendChild(container);
             }
         })
         .catch(error => {
+            document.querySelector(".weather-result").innerHTML = "";
             console.error("Ошибка при получении погоды:", error);
         });
 }
 
-
-document.addEventListener("DOMContentLoaded", function () {
-    const button = document.querySelector(".choese-history-button");
-    const historyList = document.querySelector(".history-ul");
-
-    button.addEventListener("click", async function () {
-        const isSelf = button.textContent === "Check self history";
-        const endpoint = isSelf
-            ? "/api/weather/get_self_history"
-            : "/api/weather/get_all_history";
-
-        // Меняем текст кнопки
-        button.textContent = isSelf ? "Check all history" : "Check self history";
-
-        try {
-            const response = await fetch(endpoint);
-            const data = await response.json(); // Ожидаем массив строк
-
-            // Очищаем текущие элементы списка
-            historyList.innerHTML = "";
-
-            // Добавляем новые
-            data.forEach(entry => {
-                const li = document.createElement("li");
-                li.classList.add("weather-data-li");
-                li.textContent = entry;
-                historyList.appendChild(li);
-            });
-        } catch (error) {
-            console.error("Ошибка при загрузке истории:", error);
-        }
+document.querySelector('.cleaner-button').addEventListener('click', async () => {
+  try {
+    const response = await fetch('/api/user/', {
+      method: 'DELETE',
+      credentials: 'same-origin'
     });
+    if (response.ok) {
+      window.location.reload();
+    } else {
+      alert('Ошибка при очистке истории');
+    }
+  } catch (error) {
+    alert('Ошибка сети');
+    console.error(error);
+  }
 });
