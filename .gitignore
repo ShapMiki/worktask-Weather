@@ -1,6 +1,7 @@
 
 #my
 .idea/
+myvenv/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -66,7 +67,7 @@ db.sqlite3-journal
 
 # Flask stuff:
 instance/
-.web/////////assets/-cache
+.web/assets/-cache
 
 # Scrapy stuff:
 .scrapy

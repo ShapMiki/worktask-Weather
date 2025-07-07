@@ -1,0 +1,151 @@
+body{
+    padding: 0;
+    margin:0;
+}
+
+header{
+    background-color: #a1dff8;
+    min-height: 10vh;
+    width: 100%;
+    padding:  20px;
+    text-align: center;
+}
+
+main{
+    min-height: 75vh;
+    width: 100%;
+    padding: 20px;
+    background-color: #dff1fe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer{
+    min-height:5vh;
+    background-color: #1b1c28;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    bottom: 0;
+    margin-bottom: 0;
+}
+
+.text-logo{
+    color: #0a2a49;
+    padding-top: 10px;
+}
+
+
+.foter-text{
+
+    color: #e4e4e4;
+
+}
+
+h1, h2, li, p{
+    font-family: Calibri;
+}
+
+a{
+    color: #1565C0;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    background-color: #d6f1ff;
+    min-width: 400px;
+    width: 40vw;
+    height: 60vh;
+    border: 1px solid #305983;
+    border-radius: 10px;
+
+
+}
+
+.func-button-container{
+    display: flex;
+    width: 100%;
+    justify-content: right;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.first-func-button{
+    background-color: #3d7e97;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.cleaner-button{
+    background-color: #c94338;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-right: 30px;
+}
+
+
+.form-container{
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.city-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.city-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #305983;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.get-weather-button {
+    background-color: #3d7e97;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.history-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    align-self: center;
+    background-color: #f2f8f8;
+    width: 75%;
+    height: 65%;
+    border:  1px solid grey;
+    border-radius: 7px;
+    max-height: 65%;
+    overflow-y: auto;
+}
+
+.history-ul{
+}
+
+.weather-data-li{
+    font-size: 2.1vh;
+}
+
+/*
+@media (max-height: 600px) {
+
+*/

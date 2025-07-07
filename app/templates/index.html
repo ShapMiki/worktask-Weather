@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+
+    <link rel="stylesheet" href="/static/css/main.css">
+
+</head>
+<body>
+
+    <header>
+        <h1 class="text-logo">Weather forecast</h1>
+    </header>
+
+
+    <main>
+        <div class="container">
+
+            <div class="func-button-container">
+                <a href="/pages/history"><button class="first-func-button" >Check history</button></a>
+                <button class="cleaner-button"> Clear history</button>
+            </div>
+
+            <div class="form-container">
+                <form id="weather-form" class="city-form">
+                    <input class="city-input" type="text" id="city-input" placeholder="Write city" required>
+                    <button class="get-weather-button" type="submit">get weather</button>
+                </form>
+            </div>
+
+            <div id="weather-result" class="weather-result">
+
+            </div>
+
+        </div>
+    </main>
+
+
+    <footer>
+        <p class="foter-text">Тестовое задание</p>
+    </footer>
+
+
+    <script src="/static/js/scripts.js"></script>
+
+
+</body>
+</html>
