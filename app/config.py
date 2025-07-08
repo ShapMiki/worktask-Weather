@@ -9,6 +9,10 @@ class Settings(BaseSettings):
     DB_PASSWORD: str
     DB_NAME: str
     DATABASE_URL: Optional[str] = None
+
+    REDIS_HOST: str
+    REDIS_PORT: str
+
     hour_zone: int
     api_key: str
 
@@ -19,6 +23,6 @@ class Settings(BaseSettings):
         return values
 
     class Config:
-        env_file = "app/.env"
+        env_file = ".env"
 
 settings = Settings()

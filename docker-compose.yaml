@@ -1,0 +1,47 @@
+services:
+  db:
+    image: postgres:15
+    container_name: weather_app_db
+    restart: always
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+
+    ports:
+      - "5435:5432" # 5435 чтоб не было конфликта с postgres вне контейнера
+
+  redis:
+    image: redis:8
+    container_name: weather_app_redis
+    restart: always
+    ports:
+      - "6666:6379" #Если понадобиться проверять данные из вне контейнера
+
+  weather_app:
+    image: weather_app
+    restart: always
+    build:
+      context: .
+
+    container_name: weather_app_container
+
+    command: bash -c "alembic upgrade head && \
+               echo 'Waiting for PostgreSQL... 10 seconds' && \
+               sleep 10 && \
+               gunicorn  app.main:app --workers 2 --worker-class uvicorn.workers.UvicornWorker --bind=0.0.0.0:8000"
+
+    ports:
+      - "80:8000"
+      - "8001:8000"
+
+    depends_on:
+      - db
+      - redis
+
+volumes:
+  postgres_data:
