@@ -1,9 +1,7 @@
 Сайт прогноза погоды
 ===
 
-<img src="https://img.icons8.com/color/48/python--v1.png" alt="python" width="40"/>
-<img src="https://img.icons8.com/color/48/linux--v1.png" alt="linux" width="40"/>
-<img src="https://img.icons8.com/color/48/windows-10.png" alt="windows" width="40"/>
+<img src="https://img.icons8.com/color/48/python--v1.png" alt="python" width="40"/><img src="https://img.icons8.com/color/48/linux--v1.png" alt="linux" width="40"/><img src="https://img.icons8.com/color/48/windows-10.png" alt="windows" width="40"/>
 <img src="" alt="" width="40"/>
 
 ---
@@ -51,8 +49,8 @@
 
 <br><br><br>
 
-<img src=" https://img.icons8.com/3d-fluency/94/github.png" alt="git_hub" width="40"/>
-P.S. Некоторые элементы проекта могут казаться избыточными для такого небольшого масштаба, однако основная цель — продемонстрировать мой подход к архитектуре, стиль написания кода и технологии, с которыми я умею работать.
+<img src="https://img.icons8.com/3d-fluency/94/github.png" alt="git_hub" width="40"/>P.S. Некоторые элементы проекта могут казаться избыточными для такого небольшого масштаба, однако основная цель — продемонстрировать мой подход к архитектуре, стиль написания кода и технологии, с которыми я умею работать.
+
 <br>
 
 ---
@@ -93,8 +91,7 @@ pip3 install -r requirements.txt
    - иструкция по установке PostgreSQL: [PostgreSQL Installation](https://www.postgresql.org/download/) 
    - инструкция по установке Redis: [Redis Installation](https://redis.io/docs/getting-started/installation/)
    
-<img src="https://img.icons8.com/color/48/high-importance--v1.png" alt="" width="20"/>
-Для работы сайта Redis нужно запустить
+<img src="https://img.icons8.com/color/48/high-importance--v1.png" alt="" width="20"/> Для работы сайта, Redis нужно запустить
    
 
 
