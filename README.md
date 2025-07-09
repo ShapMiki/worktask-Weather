@@ -287,6 +287,23 @@ When clicking the "Clear history" button, the current user's request history wil
 
 <br>
 
+### FAQ
+
+1. **How is personal history implemented and cleared?**  
+Each user is automatically assigned a unique `user_id` on their first visit, which is stored in cookies.  
+Instead of using JWT or any authentication (as there's no need to protect personal data in this case),  
+I implemented a simple yet effective solution:  
+when a user decides to clear their history, their `user_id` is replaced with a new, unused one.  
+This approach allows for efficient history removal without additional load on the database or CPU,  
+and without deleting the actual records — they remain in the global history.
+
+2. **How is the frontend implemented?**  
+The main page uses JavaScript for dynamic content updates without reloading the page.  
+For the request history page, server-side rendering is used via `Jinja2Templates` from FastAPI.  
+This method is ideal for displaying tabular data, reduces frontend complexity,  
+and also demonstrates my experience with server-side rendering techniques.
+
+
 ---
 
 #### RU
@@ -565,6 +582,23 @@ http://localhost:80
 - Alembic — миграции БД
 - Docker — для контейнеризации приложения.
 - Git — для контроля версий.
+
+<br>
+
+### FAQ
+
+1. **Как реализована личная история и её очистка?**  
+Каждому пользователю при первом обращении автоматически присваивается уникальный `user_id`, который сохраняется в cookie.  
+Вместо использования JWT или авторизации(т.к. не требуется защита персональных данных), я применил простой, но эффективный подход:  
+если пользователь решает очистить историю, его `user_id` заменяется на новый, ранее не использовавшийся.  
+Это позволяет удалить пользовательскую историю без дополнительной нагрузки на БД или процессор, и без удаления самих записей (они остаются в общей "глобальной" истории).
+
+2. **Как реализована работа с фронтендом?**  
+Главная страница реализована с использованием JavaScript для динамического обновления данных без перезагрузки страницы.  
+Для страницы истории запросов используется серверный рендеринг с помощью `Jinja2Templates` из FastAPI, что удобно для отображения табличных данных и уменьшения объёма JS-кода,
+а так же для демонстрации навыков работы с серверным рендерингом
+---
+
 
 <br>
 
