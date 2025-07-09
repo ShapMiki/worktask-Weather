@@ -8,8 +8,8 @@ from app.user.dependencies import get_user_id
 from app.redis_client import get_redis
 
 
-templates = Jinja2Templates(directory="app/templates")
 
+templates = Jinja2Templates(directory="app/templates")
 router = APIRouter(
     prefix="/pages",
     tags=["pages"],
@@ -28,13 +28,10 @@ async def get_main_page(request: Request, response: Response,
     return response
 
 
-
 @router.get("/history/{history_type}")
-async def get_history_page(
-    history_type: str,
-    request: Request,
-    user_id: int = Depends(get_user_id)
-):
+async def get_history_page(history_type: str, request: Request,
+    user_id: int = Depends(get_user_id)):
+
     redis = await get_redis()
     data = {}
 
@@ -45,6 +42,7 @@ async def get_history_page(
     if history_type == "self":
         cache_key = f"user:{user_id}:history_page"
         cached_html = await redis.get(cache_key)
+
         if cached_html:
             return HTMLResponse(content=cached_html)
         if user_id:
@@ -54,6 +52,7 @@ async def get_history_page(
     elif history_type == "all":
         cache_key = "all_history_page"
         cached_html = await redis.get(cache_key)
+
         if cached_html:
             return HTMLResponse(content=cached_html)
 

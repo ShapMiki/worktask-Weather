@@ -88,6 +88,26 @@ Additionally, the following features were implemented:
 ### 2.2 Running Without Docker
 
 1. Make sure you have Python version 3.9 or higher installed.
+
+<img src="https://img.icons8.com/color/48/medium-priority.png" alt="" width="20"/> It is recommended to create a virtual environment
+
+- Creation:
+    ```bash
+    python -m venv venv
+    ```
+
+- Activation:
+
+    For **Windows**:
+    ```bash
+    venv\Scripts\activate
+    ```
+
+    For **Linux**:
+    ```bash
+    source venv/bin/activate
+    ```
+
 2. Install the project dependencies by running:
 
    For Windows:
@@ -104,7 +124,8 @@ Additionally, the following features were implemented:
    - PostgreSQL installation guide: [PostgreSQL Installation](https://www.postgresql.org/download/)
    - Redis installation guide: [Redis Installation](https://redis.io/docs/getting-started/installation/)
 
-   <img src="https://img.icons8.com/color/48/high-importance--v1.png" alt="" width="20"/> Redis must be running for the site to work.
+   <img src="https://img.icons8.com/color/48/high-importance--v1.png" alt="" width="20"/> Redis must be running for the site to work. (And also PostgreSQL if the deployment is being done on Linux)
+
 
 
 4. Creating the .env file  
@@ -351,6 +372,26 @@ When clicking the "Clear history" button, the current user's request history wil
 ### 2.2 Запуск без докера
 
 1. Убедитесь, что у вас установлен Python версии 3.9 или выше
+
+
+<img src="https://img.icons8.com/color/48/medium-priority.png" alt="" width="20"/> Рекомендуется создание виртуальной среды
+    
+- Содание:
+    ```bash
+  python -m venv venv  
+  ```
+
+- Запуск:
+    Для Windows:
+    ```bash
+    venv\Scripts\activate
+    ```
+    Для Linux:
+    ```bash
+    source venv/bin/activate
+    ```
+   
+
 2. Установите зависимости проекта, выполнив команду:
 Для Windows:
 ```bash
@@ -365,7 +406,7 @@ pip3 install -r requirements.txt
    - иструкция по установке PostgreSQL: [PostgreSQL Installation](https://www.postgresql.org/download/) 
    - инструкция по установке Redis: [Redis Installation](https://redis.io/docs/getting-started/installation/)
    
-<img src="https://img.icons8.com/color/48/high-importance--v1.png" alt="" width="20"/> Для работы сайта, Redis нужно запустить
+<img src="https://img.icons8.com/color/48/high-importance--v1.png" alt="" width="20"/> Для работы сайта, Redis нужно запустить. (А так же PostgreSQL если развертывание происходит на linux)
    
 
 

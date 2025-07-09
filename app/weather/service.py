@@ -4,14 +4,13 @@ from datetime import datetime
 
 #openweather
 async def get_weather(city: str) -> dict:
-
     try:
         weather_url = ("https://api.openweathermap.org/data/2.5/" +
                        f"weather?q={city}&APPID={settings.api_key}")
         response = requests.get(weather_url)
         response.raise_for_status()
         response = response.json()
-        print(response)
+
         weather = {
             "temp": round(float(response["main"]["temp"]) - 273.15, 2),
             "condition": response["weather"][0]["main"],
@@ -19,7 +18,9 @@ async def get_weather(city: str) -> dict:
             "wind_speed": response["wind"]["speed"],
             'now_dt': datetime.utcnow()
         }
+
         return weather
+
     except requests.RequestException as e:
         status_code = e.response.status_code
         if status_code == 404:
