@@ -91,23 +91,22 @@ Additionally, the following features were implemented:
 
 <img src="https://img.icons8.com/color/48/medium-priority.png" alt="" width="20"/> It is recommended to create a virtual environment
 
-- Creation:
+(While in the root directory of the project "PATH_TO_PROJECT/worktask-Weather") you need to run the following commands:
+
+- To create the virtual environment:
     ```bash
-    python -m venv venv
+    python -m venv venv  
     ```
 
-- Activation:
-
-    For **Windows**:
+- To activate the environment:
+    For Windows:
     ```bash
     venv\Scripts\activate
     ```
-
-    For **Linux**:
+    For Linux:
     ```bash
     source venv/bin/activate
     ```
-
 2. Install the project dependencies by running:
 
    For Windows:
@@ -156,7 +155,7 @@ Additionally, the following features were implemented:
   alembic upgrade head
 ```
 
-6. Start the server by running:
+6. Start the server by running(in the root directory of the project ):
 
 ```bash
 uvicorn app.main:app --host 0.0.0.0 --port 80 --reload
@@ -199,7 +198,7 @@ api_key=YOUR_OPENWEATHER_API_KEY
     - YOUR_OPENWEATHER_API_KEY → Your actual OpenWeather API key.
   - Remove inline comments, keeping only values in the final file.
 
-   3. Run the following command in your terminal:
+   3. Run the following command in your terminal(in the root directory of the project):
 ```bash
 docker-compose up --build
 ```
@@ -375,13 +374,14 @@ When clicking the "Clear history" button, the current user's request history wil
 
 
 <img src="https://img.icons8.com/color/48/medium-priority.png" alt="" width="20"/> Рекомендуется создание виртуальной среды
-    
-- Содание:
+   
+(Находясь в корневой директории проекта "ПУТЬ_К_ПРОЕКТУ/worktask-Weather") Нужно выполнить команды
+- Для Содания:
     ```bash
   python -m venv venv  
   ```
 
-- Запуск:
+- Для запуска:
     Для Windows:
     ```bash
     venv\Scripts\activate
@@ -437,7 +437,7 @@ api_key=ВАШ_API_КЛЮЧ_ОТ_OPENWEATHER
 alembic upgrade head
 ```
 
-6. Запустите сервер, выполнив команду:
+6. Запустите сервер, выполнив команду(в корневой директории проекта):
 ```bash
 uvicorn  app.main:app --host  0.0.0.0 --port 80 --reload
 ```
